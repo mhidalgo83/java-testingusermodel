@@ -84,6 +84,7 @@ public class UserServiceImplTest {
         User u2 = new User(userName,
                 "1234567",
                 "test@test.com");
+        u2.setUserid(4);
         u2.getUseremails()
                 .add(new Useremail(u2,
                         "cinnamon@mymail.local"));
@@ -96,11 +97,30 @@ public class UserServiceImplTest {
         userService.save(u2);
         User addUser = userService.save(u2);
         assertNotNull(addUser);
-        assertEquals(userName, addUser.getUsername());
+        assertEquals(userName.toLowerCase(), addUser.getUsername());
     }
 
     @Test
     public void update() {
+        String userName = "Test Me";
+
+        User u2 = new User(userName,
+                "1234567",
+                "mytest@test.com");
+        u2.setUserid(4);
+        u2.getUseremails()
+                .add(new Useremail(u2,
+                        "cinnamon@mymail.local"));
+        u2.getUseremails()
+                .add(new Useremail(u2,
+                        "hops@mymail.local"));
+        u2.getUseremails()
+                .add(new Useremail(u2,
+                        "bunny@email.local"));
+        userService.update(u2, u2.getUserid());
+        User addUser = userService.save(u2);
+        assertNotNull(addUser);
+        assertEquals(userName.toLowerCase(), addUser.getUsername());
     }
 
     @Test

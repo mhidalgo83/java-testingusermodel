@@ -1,17 +1,17 @@
-import com.lambdaschool.usermodel.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.runner.RunWith;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * Main class to start the application.
  */
-//@EnableWebMvc
+
 //@EnableJpaAuditing
 @SpringBootApplication
-public class UserModelApplication
+public class UserModelApplicationTest
 {
     /**
      * Main method to start the application.
@@ -20,7 +20,7 @@ public class UserModelApplication
      */
     public static void main(String[] args)
     {
-        SpringApplication.run(UserModelApplication.class,
+        SpringApplication.run(UserModelApplicationTest.class,
                               args);
     }
 }
